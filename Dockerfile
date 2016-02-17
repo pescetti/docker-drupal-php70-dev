@@ -38,7 +38,8 @@ RUN ln -s /var/log/xdebug/xdebug.log /var/www/log/
 #    rm -Rf ../xhprof-master
 
 # Install JRE (needed for some testing tools like sitespeed.io) and libs for PhantomJS.
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install default-jre libfreetype6 libfontconfig
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y install default-jre libfreetype6 libfontconfig
 
 # Install Node 4.2.4 LTS
 RUN cd /opt && \
